@@ -1,0 +1,5 @@
+Rank Country GDP
+1 Australia 141100
+2 Bangladesh 104300
+3 Brunei 81100
+4 China 69900

@@ -1,0 +1,17 @@
+{
+    "contents" : "#Real-World Data\n\nlist.files(pattern = \".*R\")\npiracy <- read.csv(\"piracy.csv\")\ngdp <- read.table(\"gdp.txt\", sep=\" \", header=TRUE)\ncountries <- merge(x = gdp, y = piracy)\n\nplot(countries$GDP,countries$Piracy)\n\n#Возможна есть корреляция - \ncor.test(countries$GDP, countries$Piracy)\n#The key result we're interested in is the \"p-value\". \n#Conventionally, any correlation with a p-value less than 0.05 \n#is considered statistically significant,\n\n#мы можем попробовать построить линейную модель:\nline <- lm(countries$Piracy ~ countries$GDP)\nabline(line)\n\n##+ggplot2 example\ninstall.packages(\"ggplot2\")\nhelp(package = \"ggplot2\")\n\nweights <- c(300, 200, 100, 250, 150)\nprices <- c(9000, 5000, 12000, 7500, 18000)\nchests <- c('gold', 'silver', 'gems', 'gold', 'gems')\ntypes <- factor(chests)\n#\nlibrary(ggplot2)\nqplot(weights, prices, color = types)\n#",
+    "created" : 1400881128450.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3900367423",
+    "id" : "3A6D2D01",
+    "lastKnownWriteTime" : 1400878902,
+    "path" : "D:/Projects/R/First/try7.R",
+    "project_path" : "try7.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}

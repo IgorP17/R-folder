@@ -1,0 +1,17 @@
+{
+    "contents" : "#display current work directory\ngetwd()\n#list dir\ndir()\n#display loaded code?\nls()\n#load code\nsource(\"somefile.R\")\n\n####matrix\nm <- matrix(nrow = 2, ncol = 3)\nm\ndim(m)#dimentions\nattributes(m)\n\n#matrix init\nm <- matrix(1:6, nrow = 2, ncol = 3)\nm\n\n#transform\nm <- 1:10\ndim(m) <- c(2,5)\nm\n\n#cbind \nx <- 1:3\ny <- 10:12\ncbind(x,y)\nrbind(x,y)\n\n##list - differant types of data\nx <- list(1, \"a\", TRUE, 1+4i)\nx\n\n##factors\nx <- factor(c(\"yes\", \"yes\", \"no\", \"yes\", \"no\"))\nx\ntable(x) #frequency\nunclass(x)#yes == 2, no ==1, как по алфавиту\n\nx <- factor(c(\"yes\", \"yes\", \"no\", \"yes\", \"no\"), levels = c(\"yes\", \"no\"))\nx\nunclass(x)#yes == 1, no ==2\n\n#NAN and na\nis.na()\nis.nan()\n\nx <- c(1,2,NA,4,5)\nis.na(x)\nis.nan(x)\nx <- c(1,2,NA,NaN,5)\nis.na(x)\nis.nan(x)\n\n#data frames - special list - иначе говоря это \n#типа первая колонка имя например, вторая возраст, третья пол и тп\n\nrow.names\nread.table()\nread.csv()\ndata.matrix() #convert to matrix \n\nx <- data.frame(foo = 1:4, bar = c(T,T,F,T))\nx\nnrow(x)\nncol(x)\n\n###Names\nx <- 1:3\nnames(x)\nnames(x) <- c(\"foo\", \"bar\", \"norf\")\nx\nnames(x)\n\n\nx <- list(a = 1, b = 2, c = 3) \nx\n\nm <- matrix(1:4, nrow = 2, ncol = 2)\ndimnames(m) <- list(c(\"a\",\"b\"),c(\"c\",\"d\"))\nm\n\n\n#######Subsets [] [[]] $\nx <- c(\"a\",\"b\",\"b\",\"d\",\"e\",\"a\")\nx[1]\nx[2:4]\nx[x > \"a\"] #logical statement\nu <- x > \"a\" #logical vector\nu\nx[u]\n\nx <- matrix(1:6, 2, 3)\nx\nx[1,2]\nx[1,]\nx[,2]\n\nx[1,2, drop = FALSE] #возвратим матрицу, а не вектор\nx[1, ,drop = FALSE]\n\n#list subset\nx <- list(foo = 1:4, bar = 0.6)\nx[1] #возвращаем List\nx[[1]] #возвратили seq\nx$bar\nx[[\"bar\"]]\nx[\"bar\"] #return list\n\n\nx <- list(foo = 1:4, bar = 0.6, baz=\"hello\")\nx[c(1,3)]\n\nname <- \"foo\"\nx[[name]]#это сработает \nx$name#элемента name нету в листе\nx$foo\n\n##\nx <- list(a = list(10,12,14), bar = 0.6, baz=\"hello\")\nx[[1]][[3]] #берем первый элемент список и из него 3й элемент\nx[[c(1,3)]]\n\n##частичное совпадение имен\nx <- list(aardwark = 1:5)\nx$a#works\nx[[\"a\"]]\nx[[\"a\", exact = FALSE]]#works\n\n##remove NA\nx <- c(1,2,NA,4,NA,6)\nis.na(x)\nbad <- is.na(x)\nx[!bad]\n\n\nx <- c(1,2,NA,4,NA,6)\ny <- c(\"a\",\"b\",NA,\"d\",NA,\"f\")\ngood <- complete.cases(x,y)\ngood\nx[good]\ny[good]\n\n\nhead",
+    "created" : 1404754446829.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2988607210",
+    "id" : "B56BD43",
+    "lastKnownWriteTime" : 1405171130,
+    "path" : "D:/Projects/R/First/RGO.R",
+    "project_path" : "RGO.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}
