@@ -79,17 +79,17 @@ eq = paste0("y = ", round(coeff[2],1), "*x ", round(coeff[1],1))
 plot(cars, main=eq)
 abline(reg, col="blue")
 
-# Нормализованые
-plot(df$speedNormalized, df$distNormalized)
-abline(a = BLastNormalized, b = WLastNormalized, col="blue")
-
 # А теперь по идее надо денормализировать коэфициенты...
-# y = w * x + b -> y' = w' * x' + b'
-# Наклон в общеv похоже так. Наклон это дельта У поделить на дельта Х
-# alpha' = dy'/dx', dy' = dy / sd(y), dx' = dx / sd(x)
-# alpha = alpha' * sd(y) / sd(x)
-WOrigin <- WLastNormalized * sd(df$dist) / sd(df$speed)
 
-# b это фактически y(0)
-# 
+# См приложение с расчетами LinearRegressionCoef.odt
+WOrigin <- WLastNormalized * sd(df$dist) / sd(df$speed)
+BOrigin <- BLastNormalized * sd(df$dist) + mean(df$dist) - WLastNormalized * sd(df$dist) * mean(df$speed) / sd(df$speed)
+
+# Денормализованые
+plot(df$speed, df$dist, main = paste("y=",
+                                round(WOrigin,1), 
+                                "*x", 
+                                round(BOrigin,1)))
+abline(a = BOrigin, b = WOrigin, col="blue")
+
 
