@@ -84,4 +84,12 @@ plot(df$speedNormalized, df$distNormalized)
 abline(a = BLastNormalized, b = WLastNormalized, col="blue")
 
 # А теперь по идее надо денормализировать коэфициенты...
+# y = w * x + b -> y' = w' * x' + b'
+# Наклон в общеv похоже так. Наклон это дельта У поделить на дельта Х
+# alpha' = dy'/dx', dy' = dy / sd(y), dx' = dx / sd(x)
+# alpha = alpha' * sd(y) / sd(x)
+WOrigin <- WLastNormalized * sd(df$dist) / sd(df$speed)
+
+# b это фактически y(0)
+# 
 
