@@ -92,4 +92,6 @@ plot(df$speed, df$dist, main = paste("y=",
                                 round(BOrigin,1)))
 abline(a = BOrigin, b = WOrigin, col="blue")
 
-
+# разница между lm и TF
+coeff[1] - BOrigin
+coeff[2] - WOrigin
